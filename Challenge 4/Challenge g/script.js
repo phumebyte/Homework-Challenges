@@ -1,34 +1,47 @@
-FREE_WARNING = 'Free shipping only applies to single customer orders'
-BANNED_WARNIN = 'Unfortunately we do not ship to your country of residence'
-NONE_SELECTED = '0'
+const FREE_WARNING = 'Free shipping only applies to single customer orders';
+const BANNED_WARNING = 'Unfortunately we do not ship to your country of residence';
+const NONE_SELECTED = 0;  
 
-if (location = RSA) { shipping === 400 && currency === 'R' }
+let location = 'RSA';  
+let currency = null;  
+let customers = 1;  
+let shipping = 0;  // Declare shipping here
 
-if location = NAM
-shipping = 600 
-else shipping = 800
-
-shoes = 300 * 1
-toys - 100 * 5
-shirts = 150 * 'NONE_SELECTED'
-batteries 35 * 2
-pens = 5 * 'NONE_SELECTED' 
-
-shipping = null
-currency = $
-
-if (shoes + batteries + pens + shirts > 1000 &&  ) {
-	if (location = NAM && customers < 2) {
-			if (location = RSA)
-		    shipping = 0 || calcShipping
-		}
-	}
+if (location === 'RSA') {
+    shipping = 400;
+    currency = 'R';
+} else if (location === 'NAM') {
+    shipping = 600;
+    currency = '$';
+} else if (location === 'NK') {
+    console.log(BANNED_WARNING);
+} else {
+    shipping = 800;  
+    currency = '$';
 }
 
-if (shipping = 0) && (customers !=== 1) { console.log(WARNING) }
+let shoes = 300 * 1;
+let toys = 100 * 5;
+let shirts = 150 * NONE_SELECTED;  
+let batteries = 35 * 2;
+let pens = 5 * NONE_SELECTED;
 
-location = 'NK' ? console.log(WARNING) : console.log('price', currency, shoes + batteries + pens + shirts + shipping)
+// Calculate total cost excluding shipping
+let totalCost = shoes + toys + shirts + batteries + pens;
 
-customers = '1'
-const location = 'RSA'
-currency = null
+if (totalCost >= 1000) {
+    if ((location === 'NAM' || location === 'RSA') && customers === 1) {
+        shipping = 0; 
+        console.log(FREE_WARNING);
+    } 
+}
+
+// Display total cost including shipping
+let finalCost = totalCost + shipping;
+console.log('Total Price:', currency, finalCost);
+
+// Check for multiple customers and free shipping warning
+if (shipping === 0 && customers !== 1) {
+    console.log(FREE_WARNING);
+}
+
