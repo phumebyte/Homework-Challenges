@@ -1,11 +1,12 @@
-const primaryPhone = 'O748105141'
-const secondaryPhone = '0219131568'
+const primaryPhone = 'O748105141';
+const secondaryPhone = '0219131568';
 
 // Only change below this line
 
-const primaryValid = typeof number == primaryPhone 
-const secondaryValid = typeof number == secondaryPhone
+const regex = new RegExp('^[0-9]{10}$|[^0-9]');
 
-console.log('Primary phone is valid numerical string:', primaryValid)
-console.log('Secondary phone is valid numerical string:', secondaryValid )
- 
+let resultPrimary = regex.test(primaryPhone)
+let resultSecondary = regex.test(secondaryPhone) 
+
+console.log('Primary phone is valid numerical string:', resultPrimary);
+console.log('Secondary phone is valid numerical string:', resultSecondary);
